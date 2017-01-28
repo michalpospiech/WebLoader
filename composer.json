@@ -1,0 +1,21 @@
+{
+  "name": "mpospiech/webloader",
+  "type": "library",
+  "keywords": ["nette", "webloader", "css", "js"],
+  "authors": [
+    {
+      "name": "Michal Pospiech",
+      "email": "michal@pospiech.cz"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "mpospiech\\webLoader\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">= 5.6",
+    "janmarek/webloader": "dev-master",
+    "leafo/lessphp": "^0.5.0"
+  }
+}
