@@ -33,7 +33,7 @@ class WebLoaderExtension extends CompilerExtension
 
 		$wl = $builder->addDefinition($this->prefix('webLoader'))
 			->setClass(WebLoader::class, ['%wwwDir%', $config['sourceDir']])
-			->addSetup('setOutputDir', $config['outputDir']);
+			->addSetup('setOutputDir', [$config['outputDir']]);
 
 		if ($config['cssUrlsFilter']) {
 			$builder->addDefinition($this->prefix('cssUrlsFilter'))
