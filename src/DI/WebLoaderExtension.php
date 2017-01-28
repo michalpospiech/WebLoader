@@ -21,6 +21,7 @@ class WebLoaderExtension extends CompilerExtension
 		return [
 			'sourceDir' => 'design',
 			'outputDir' => 'cssjstemp',
+			'wwwDir' => '%wwwDir%',
 			'cssUrlsFilter' => false,
 			'lessFilter' => false
 		];
@@ -32,12 +33,12 @@ class WebLoaderExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$wl = $builder->addDefinition($this->prefix('webLoader'))
-			->setClass(WebLoader::class, ['%wwwDir%', $config['sourceDir']])
+			->setClass(WebLoader::class, [$config['wwwDir'], $config['sourceDir']])
 			->addSetup('setOutputDir', [$config['outputDir']]);
 
 		if ($config['cssUrlsFilter']) {
 			$builder->addDefinition($this->prefix('cssUrlsFilter'))
-				->setClass(CssUrlsFilter::class, ['%wwwDir%']);
+				->setClass(CssUrlsFilter::class, [$config['wwwDir']]);
 
 			$wl->addSetup('setCssUrlsFilter');
 		}
