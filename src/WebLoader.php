@@ -8,8 +8,8 @@
 namespace mpospiech\WebLoader;
 
 
+use Nette;
 use Nette\Http\IRequest;
-use Nette\Object;
 use WebLoader\Compiler;
 use WebLoader\FileCollection;
 use WebLoader\Filter\CssUrlsFilter;
@@ -17,8 +17,10 @@ use WebLoader\Filter\LessFilter;
 use WebLoader\Nette\CssLoader;
 use WebLoader\Nette\JavaScriptLoader;
 
-class WebLoader extends Object implements IWebLoader
+class WebLoader implements IWebLoader
 {
+
+	use Nette\SmartObject;
 
 	/** @var string */
 	private $wwwDir;
