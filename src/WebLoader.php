@@ -17,10 +17,8 @@ use WebLoader\Filter\LessFilter;
 use WebLoader\Nette\CssLoader;
 use WebLoader\Nette\JavaScriptLoader;
 
-class WebLoader implements IWebLoader
+class WebLoader extends Nette\Object implements IWebLoader
 {
-
-	use Nette\SmartObject;
 
 	/** @var string */
 	private $wwwDir;
